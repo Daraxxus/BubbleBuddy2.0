@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BubbleDied : MonoBehaviour {
-
+	public Animator bubble;
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -16,10 +16,17 @@ public class BubbleDied : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.name.Equals("Bubble"))
+		if (collision.gameObject.CompareTag("Spike"))
 		{
-			Time.timeScale = 0f;
-			Debug.Log("Popped");
+			bubble.SetInteger("State", 1);
+			StartCoroutine(Timer());
 		}
+	}
+
+	IEnumerator Timer()
+	{
+		yield return new WaitForSeconds(0.085f);
+		Time.timeScale = 0f;
+		Debug.Log("Popped");
 	}
 }

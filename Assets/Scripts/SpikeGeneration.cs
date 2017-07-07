@@ -52,9 +52,9 @@ public class SpikeGeneration : MonoBehaviour {
 				}
 			}
 
-			if (speed > -0.2f)
+			if (speed > -0.15f)
 			{
-				if (score % 25 == 0)
+				if (score % 25 == 1)
 				{
 					speed = speed - 0.001f;
 				}
