@@ -35,7 +35,7 @@ public class ColorChangeViaVol : MonoBehaviour
 
     public void UpdateMusicVolumeBar(float val)
     {
-        slider.value = val;
+        music.volume = val;
         fill.color = Color.Lerp(MinVolumeColor, MaxVolumeColor, val / MaxVolume);
     }
 }
