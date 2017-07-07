@@ -16,6 +16,7 @@ public class SoundManagement : MonoBehaviour {
 	void Start () {
         GetComponent<AudioSource>().loop = true;
         StartCoroutine(BGM());
+        bubbleAlive = true;
 	}
 	
 	// Update is called once per frame

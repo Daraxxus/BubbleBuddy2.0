@@ -24,7 +24,9 @@ public class PauseMenuExample : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(Application.loadedLevel);
+        SceneManager.UnloadScene(1);
+        SceneManager.LoadScene(1);
+        SpikeGeneration.score = 0;
         SumPause.Status = false;
     }
 

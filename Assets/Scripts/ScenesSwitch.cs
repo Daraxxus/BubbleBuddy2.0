@@ -27,6 +27,7 @@ public class ScenesSwitch : MonoBehaviour {
 
     public void PlayGame()
     {
+        
         SceneManager.LoadScene("bubblegame");
         Time.timeScale = 1;
     }

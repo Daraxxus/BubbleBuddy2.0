@@ -9,8 +9,8 @@ public class SpikeGeneration : MonoBehaviour {
 	public Transform SpikeStartPos;
 	public Transform SpikeStartPos2;
 	public Animator bubble;
-	public int score = 0;
-	private int nextScoreTime;
+	public static int score = 0;
+	private int nextScoreTime = 2;
 	private int scorePeriod = 2;
 	private int scoreAmount = 1;
 	private int checkPoint = 0;
@@ -19,7 +19,10 @@ public class SpikeGeneration : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		NewSpike();
+        score = 0;
+        nextScoreTime = (int)(Time.time) + scorePeriod;
 		SpikeStartPos2.Rotate(new Vector3(0, 180, 0));
+        Debug.Log("Start");
 	}
 
 	
@@ -83,6 +86,7 @@ public class SpikeGeneration : MonoBehaviour {
 		if (bubble.GetInteger("State")==1)
 		{
 			text.text = "Your Score: " + score;
+
 		}
 	}
 }
