@@ -30,8 +30,12 @@ public class SoundManagement : MonoBehaviour {
         audio.Play();
     }
 
-    void PlayWhenPopped()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ()
+        if (collision.gameObject.CompareTag("Spike"))
+        {
+            audio.clip = deathSound;
+            audio.Play();
+        }
     }
 }

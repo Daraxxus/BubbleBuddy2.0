@@ -30,11 +30,11 @@ public class Movement : MonoBehaviour {
 
 		if ((Random.Range(1, 6)) % 2 == 1)
 		{
-			bubble.transform.Translate(new Vector2(0.001f, 0));
+			bubble.transform.Translate(new Vector2(0.003f, 0));
 		}
 		else
 		{
-			bubble.transform.Translate(new Vector2(-0.001f, 0));
+			bubble.transform.Translate(new Vector2(-0.003f, 0));
 		}
 	}
 
