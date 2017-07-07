@@ -19,14 +19,6 @@ public class BubbleDied : MonoBehaviour {
 		if (collision.gameObject.CompareTag("Spike"))
 		{
 			bubble.SetInteger("State", 1);
-			StartCoroutine(Timer());
 		}
-	}
-
-	IEnumerator Timer()
-	{
-		yield return new WaitForSeconds(0.085f);
-		Time.timeScale = 0f;
-		Debug.Log("Popped");
 	}
 }

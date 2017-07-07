@@ -9,6 +9,8 @@ public class SoundManagement : MonoBehaviour {
     public AudioClip secondPhaseBGM;
     public AudioClip deathSound;
     public AudioSource audio;
+	public Animator bubble;
+	bool bubbleAlive = true;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +20,7 @@ public class SoundManagement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		BubbleDied();
 	}
 
     IEnumerator BGM()
@@ -30,12 +32,21 @@ public class SoundManagement : MonoBehaviour {
         audio.Play();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void BubbleDied()
     {
-        if (collision.gameObject.CompareTag("Spike"))
+        if (bubble.GetInteger("State") == 1 && bubbleAlive)
         {
-            audio.clip = deathSound;
-            audio.Play();
-        }
+			StartCoroutine(Death());
+			bubbleAlive = false;
+		}
     }
+
+	IEnumerator Death()
+	{
+		audio.Stop();
+		audio.PlayOneShot(deathSound, 1f) ;
+		yield return new WaitForSeconds(0.085f);
+		Time.timeScale = 0f;
+		
+	}
 }

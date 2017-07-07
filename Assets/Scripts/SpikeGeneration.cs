@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpikeGeneration : MonoBehaviour {
 	List<GameObject> Spikes = new List<GameObject>();
 	public GameObject m_Spike;
 	public Transform SpikeStartPos;
 	public Transform SpikeStartPos2;
+	public Animator bubble;
 	public int score = 0;
 	private int nextScoreTime;
 	private int scorePeriod = 2;
 	private int scoreAmount = 1;
 	private int checkPoint = 0;
 	private float speed = -0.1f;
+	public Text text;
 	// Use this for initialization
 	void Start () {
 		NewSpike();
@@ -23,6 +26,7 @@ public class SpikeGeneration : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		BubbleDead();
 		if (Time.timeScale == 1f)
 		{
 			for (int x = 0; x < Spikes.Count; x++)
@@ -72,5 +76,13 @@ public class SpikeGeneration : MonoBehaviour {
 			newSpike = Instantiate (m_Spike, SpikeStartPos2);
 		}	
 		Spikes.Add(newSpike);
+	}
+
+	private void BubbleDead()
+	{
+		if (bubble.GetInteger("State")==1)
+		{
+			text.text = "Your Score: " + score;
+		}
 	}
 }

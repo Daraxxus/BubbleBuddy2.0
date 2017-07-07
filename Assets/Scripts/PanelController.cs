@@ -5,6 +5,7 @@ using UnityEngine;
 public class PanelController : MonoBehaviour {
     public GameObject panel;
     public Animator bubble;
+	public GameObject m_Bubble;
 	// Use this for initialization
 	void Start () {
         //panel = this.GetComponent<GameObject>();
