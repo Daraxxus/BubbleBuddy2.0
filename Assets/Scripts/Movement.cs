@@ -16,13 +16,6 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         ballMovement();
-		if (Random.Range(1, 2) % 2 == 0) {
-			bubble.transform.Translate(new Vector2(0.001f, 0));
-		}
-		else
-		{
-			bubble.transform.Translate(new Vector2(-0.001f, 0));
-		}
 	}
     
     void ballMovement()
@@ -34,7 +27,16 @@ public class Movement : MonoBehaviour {
         {
             AcceleroMovement();
         }
-    }
+
+		if ((Random.Range(1, 6)) % 2 == 1)
+		{
+			bubble.transform.Translate(new Vector2(0.001f, 0));
+		}
+		else
+		{
+			bubble.transform.Translate(new Vector2(-0.001f, 0));
+		}
+	}
 
     void GyroMovement() //Movement Through Gyroscopic Controls
     {
