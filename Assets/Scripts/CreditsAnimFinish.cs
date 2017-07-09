@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreditsAnimFinish : MonoBehaviour {
 
@@ -27,6 +28,6 @@ public class CreditsAnimFinish : MonoBehaviour {
 
     public void LoadAfterAnim()
     {
-        Application.LoadLevelAsync(lvlName);
+        SceneManager.LoadSceneAsync(lvlName);
     }
 }

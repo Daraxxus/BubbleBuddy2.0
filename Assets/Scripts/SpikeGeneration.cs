@@ -22,7 +22,6 @@ public class SpikeGeneration : MonoBehaviour {
         score = 0;
         nextScoreTime = (int)(Time.time) + scorePeriod;
 		SpikeStartPos2.Rotate(new Vector3(0, 180, 0));
-        Debug.Log("Start");
 	}
 
 	
@@ -47,7 +46,6 @@ public class SpikeGeneration : MonoBehaviour {
 			{
 				score = score + scoreAmount;
 				nextScoreTime += scorePeriod;
-				Debug.Log(score);
 			}
 
 			if (Spikes.Count < 5)
