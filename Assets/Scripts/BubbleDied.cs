@@ -20,11 +20,8 @@ public class BubbleDied : MonoBehaviour {
 		if (collision.gameObject.CompareTag("Spike"))
 		{
 			bubble.SetInteger("State", 1);
-<<<<<<< HEAD
             ads.GameOver();
-=======
 			Handheld.Vibrate();
->>>>>>> ecac29f6faca6d28bc6ccc34c2e49c9980877c6f
 		}
 	}
 
