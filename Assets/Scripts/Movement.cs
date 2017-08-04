@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour {
     public GameObject bubble;
     public int speed;
     public Rigidbody2D rb;
+    
 
     // Use this for initialization
     void Start () {

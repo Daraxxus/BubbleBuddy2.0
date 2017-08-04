@@ -50,11 +50,13 @@ public class PauseMenuExample : MonoBehaviour {
         if (paused) {
             // This is what we want do when the game is paused
             panel.SetActive(true); // Show menu
+            AdManager.Instance.ShowBannner();
             Time.timeScale = 0;
         }
         else {
             // This is what we want to do when the game is resumed
             panel.SetActive(false); // Hide menu
+            AdManager.Instance.RemoveBannner();
             Time.timeScale = 1;
         }
     }

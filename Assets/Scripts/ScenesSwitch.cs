@@ -4,22 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using GooglePlayGames;
+using admob;
 
 public class ScenesSwitch : MonoBehaviour {
 
     public Slider masterSlider;
     public Slider musicSlider;
     public AudioSource music;
-	bool SignIn = false;
+	bool SignIn = true;
+    public string bannerId;
+    public string videoId;
 
     // Use this for initialization
     void Start () {
         AudioSource music = gameObject.GetComponent<AudioSource>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+    }
+
+    // Update is called once per frame
+    void Update () {
+        Quit();
 	}
 
     public void MainMenu()
@@ -32,7 +35,9 @@ public class ScenesSwitch : MonoBehaviour {
 		if (SignIn)
 		{
 			SceneManager.LoadScene("bubblegame");
-			Time.timeScale = 1;
+            Admob.Instance().initAdmob(bannerId, videoId);
+            Admob.Instance().loadInterstitial();
+            Time.timeScale = 1;
 		}
 		else
 		{
@@ -48,7 +53,7 @@ public class ScenesSwitch : MonoBehaviour {
 				PlayGamesPlatform.Instance.SignOut();
 			}
 		}
-	}
+    }
 
     public void Options()
     {
@@ -60,9 +65,12 @@ public class ScenesSwitch : MonoBehaviour {
         SceneManager.LoadScene("Credits");
     }
 
-    public void Quit()
+    void Quit()
     {
-        Application.Quit();
+        if ( Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void MasterVol()

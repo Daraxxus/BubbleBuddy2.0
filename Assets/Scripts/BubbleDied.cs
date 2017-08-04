@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BubbleDied : MonoBehaviour {
 	public Animator bubble;
-    GoogleAds ads;
 	// Use this for initialization
 	void Start () {
-        ads = FindObjectOfType<GoogleAds>();
+        
 	}
 	
 	// Update is called once per frame
@@ -20,8 +19,8 @@ public class BubbleDied : MonoBehaviour {
 		if (collision.gameObject.CompareTag("Spike"))
 		{
 			bubble.SetInteger("State", 1);
-            ads.GameOver();
 			Handheld.Vibrate();
+            AdManager.Instance.ShowVideo();
 		}
 	}
 
