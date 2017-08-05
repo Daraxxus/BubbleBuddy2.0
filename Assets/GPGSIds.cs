@@ -24,12 +24,11 @@
 
 public static class GPGSIds
 {
-        public const string achievement_up_up_and_away = "CgkIlsPYlbgfEAIQBA"; // <GPGSID>
-        public const string achievement_make_a_friend = "CgkIlsPYlbgfEAIQAg"; // <GPGSID>
-        public const string leaderboard_highest_score_reached = "CgkIlsPYlbgfEAIQAQ"; // <GPGSID>
-        public const string achievement_a_whole_new_world = "CgkIlsPYlbgfEAIQBQ"; // <GPGSID>
-        public const string achievement_pop_goes_the_weasel = "CgkIlsPYlbgfEAIQAw"; // <GPGSID>
-        public const string achievement_no_mans_land = "CgkIlsPYlbgfEAIQBg"; // <GPGSID>
+        public const string achievement_up_up_and_away = "CgkI2oLCi_MWEAIQAg"; // <GPGSID>
+        public const string achievement_make_a_friend = "CgkI2oLCi_MWEAIQAQ"; // <GPGSID>
+        public const string achievement_a_whole_new_world = "CgkI2oLCi_MWEAIQBA"; // <GPGSID>
+        public const string achievement_pop_goes_the_weasel = "CgkI2oLCi_MWEAIQAw"; // <GPGSID>
+        public const string achievement_no_mans_land = "CgkI2oLCi_MWEAIQBQ"; // <GPGSID>
 
 }
 
