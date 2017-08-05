@@ -5,7 +5,7 @@ using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.EventSystems;
 
-public class MainMenuController : MonoBehaviour {
+public class GooglePlayController : MonoBehaviour {
 	public GameObject achButton;
 	// Use this for initialization
 	void Start () {
@@ -26,4 +26,16 @@ public class MainMenuController : MonoBehaviour {
 	void Update () {
 		achButton.SetActive(Social.localUser.authenticated);
 	}
+
+    public void achievementLoad()
+    {
+        if (PlayGamesPlatform.Instance.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ShowAchievementsUI();
+        }
+        else
+        {
+            PlayGamesPlatform.Instance.Authenticate(ScenesSwitch.SignInCallback, false);
+        }
+    }
 }

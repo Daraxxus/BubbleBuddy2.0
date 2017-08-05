@@ -24,7 +24,12 @@
 
 public static class GPGSIds
 {
+        public const string achievement_up_up_and_away = "CgkIlsPYlbgfEAIQBA"; // <GPGSID>
+        public const string achievement_make_a_friend = "CgkIlsPYlbgfEAIQAg"; // <GPGSID>
         public const string leaderboard_highest_score_reached = "CgkIlsPYlbgfEAIQAQ"; // <GPGSID>
+        public const string achievement_a_whole_new_world = "CgkIlsPYlbgfEAIQBQ"; // <GPGSID>
+        public const string achievement_pop_goes_the_weasel = "CgkIlsPYlbgfEAIQAw"; // <GPGSID>
+        public const string achievement_no_mans_land = "CgkIlsPYlbgfEAIQBg"; // <GPGSID>
 
 }
 

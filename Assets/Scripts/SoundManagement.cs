@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GooglePlayGames;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,10 @@ public class SoundManagement : MonoBehaviour {
         yield return new WaitForSeconds(25);
         audio.clip = secondPhaseBGM;
         audio.Play();
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_a_whole_new_world, 100.0f, (bool success) => { Debug.Log("Success"); });
+        }
     }
 
     private void BubbleDied()

@@ -11,13 +11,16 @@ public class ScenesSwitch : MonoBehaviour {
     public Slider masterSlider;
     public Slider musicSlider;
     public AudioSource music;
-	bool SignIn = true;
+	bool SignIn = false;
     public string bannerId;
     public string videoId;
+    private string sceneName;
 
     // Use this for initialization
     void Start () {
         AudioSource music = gameObject.GetComponent<AudioSource>();
+        Scene currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
     }
 
     // Update is called once per frame
@@ -38,6 +41,11 @@ public class ScenesSwitch : MonoBehaviour {
             Admob.Instance().initAdmob(bannerId, videoId);
             Admob.Instance().loadInterstitial();
             Time.timeScale = 1;
+
+            if (Social.localUser.authenticated)
+            {
+                PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_make_a_friend, 100.0f, (bool success) => { Debug.Log("Success"); });
+            }
 		}
 		else
 		{
@@ -49,8 +57,6 @@ public class ScenesSwitch : MonoBehaviour {
 			}
 			else
 			{
-				// Sign out of play games
-				PlayGamesPlatform.Instance.SignOut();
 			}
 		}
     }
@@ -63,11 +69,15 @@ public class ScenesSwitch : MonoBehaviour {
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
+        if (Social.localUser.authenticated)
+        {
+            PlayGamesPlatform.Instance.ReportProgress(GPGSIds.achievement_no_mans_land, 100.0f, (bool success) => { Debug.Log("Success"); });
+        }
     }
 
     void Quit()
     {
-        if ( Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && sceneName == "MainMenu")
         {
             Application.Quit();
         }
@@ -95,7 +105,7 @@ public class ScenesSwitch : MonoBehaviour {
 		}
 	}	
 
-	public void SignInCallback(bool success)
+	public static void SignInCallback(bool success)
 	{
 		if (success)
 		{
