@@ -20,6 +20,8 @@ public class GooglePlayController : MonoBehaviour {
 		// Initialize and activate the platform
 		PlayGamesPlatform.InitializeInstance(config);
 		PlayGamesPlatform.Activate();
+
+		PlayGamesClientConfiguration SavedGames = new PlayGamesClientConfiguration.Builder().EnableSavedGames().Build();	
 	}
 	
 	// Update is called once per frame
