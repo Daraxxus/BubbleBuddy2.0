@@ -45,6 +45,11 @@ public class BubbleDied : MonoBehaviour {
 				// Read saved game data and update
 				WriteUpdatedScore();
 			}
+
+			if (SpikeGeneration.score > PlayerPrefs.GetInt("HighScoreSave"))
+			{
+				PlayerPrefs.SetInt("HighScoreSave", SpikeGeneration.score);
+			}
 		}
 		AdManager.Instance.ShowVideo();
 	}

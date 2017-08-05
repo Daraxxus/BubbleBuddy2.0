@@ -16,6 +16,7 @@ public class SpikeGeneration : MonoBehaviour {
 	private int checkPoint = 0;
 	private float speed = -0.1f;
 	public Text text;
+	public Text HighScore;
 	// Use this for initialization
 	void Start () {
 		NewSpike();
@@ -84,7 +85,7 @@ public class SpikeGeneration : MonoBehaviour {
 		if (bubble.GetInteger("State")==1)
 		{
 			text.text = "Your Score: " + score;
-
+			HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScoreSave");
 		}
 	}
 }
