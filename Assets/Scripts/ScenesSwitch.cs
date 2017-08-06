@@ -35,7 +35,7 @@ public class ScenesSwitch : MonoBehaviour {
 
 	public void PlayGame()
 	{
-		if (SignIn)
+		if (PlayGamesPlatform.Instance.localUser.authenticated)
 		{
 			SceneManager.LoadScene("bubblegame");
             Admob.Instance().initAdmob(bannerId, videoId);
